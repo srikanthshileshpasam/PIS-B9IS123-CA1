@@ -2,6 +2,7 @@ from prettytable import PrettyTable as pt
 import pandas
 from pandas import DataFrame
 
+
 name_entry = ''
 name = []
 
@@ -32,10 +33,6 @@ def entry():
     if len(course_entry) > 7:
         course_entry = input('Re enter course code (Should be less than 7 characters):\n')
     course.append(course_entry)
-    
-    data = [[number[entries_count], name[entries_count], course[entries_count]]]
-    
-    sorting()
         
 def show():
     table = pt(['Student Number', 'Student Name', 'Student Course ID'])
@@ -53,13 +50,16 @@ def sorting():
     data_frame = pandas.DataFrame(data, columns = ['Number', 'Name', 'Course'])
     data_frame.sort_values(by=['Number'], inplace = True)
     print(data_frame)
-        
+    
+            
 while exit == False:
     choice = input('\n\n\nWhat would you like to do?(Select the corresponding number)\n1) Enter new details\n2) Retrieve all details\n3) Retrieve lowest student number\nPress any other key to exit.\n\n')
 
     if choice == '1':
         entry()
+        data.append([number[entries_count], name[entries_count], course[entries_count]])
         entries_count += 1
+        sorting()
 
     elif choice == '2':
         show()

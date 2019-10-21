@@ -1,27 +1,26 @@
-num = int(input('What would you like to do?(Select the corresponding number)\n1) Enter new details\n2) Retrieve details\n'))
-number = 0
-course = ''
-if num == 1:
-    name = input('Enter student name:\n')
-    number = int(input('Enter student number:\n'))
-    if number >= 9:
-        number = int(input('Enter student number:\n'))
-    course = input('Enter course code:\n')
-    if course >= 7:
-        course = input('Enter course code:\n')
-        
-    
-elif num == 2:
-    Retrieve()
-    
+choice = int(input('What would you like to do?(Select the corresponding number)\n1) Enter new details\n2) Retrieve details\n'))
+name = []
+number = []
+course = []
+min_number = 0
+count = 0
+add_more = True
 
-class Add:
-    def __init__(self, number, name, course):
-        self.number = number
-        self.name = name
-        self.course = course
-        
-    def storing():
-        self.name  
-        self.number 
-        self.course 
+while add_more == True:
+    if choice == 1:
+        name_entry = input('Enter student name:\n')
+        name.append(name_entry)
+    num_entry = int(input('Enter student number:\n'))
+    while num_entry > 99999999:
+        num_entry = int(input('Enter student number:\n'))
+    number.append(num_entry)
+    course_entry = input('Enter course code:\n')
+    if len(course_entry) > 7:
+        course_entry = input('Enter course code:\n')
+    course.append(course_entry)
+    count += 1
+    add_more = bool(input('Do you wish to add more entries?(Reply with True or False only):\n'))
+    
+#elif choice == 2:
+    #Retrieve(min_number)
+    

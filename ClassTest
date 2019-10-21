@@ -8,8 +8,8 @@ add_more = True
 
 while add_more == True:
     if choice == 1:
-        name_entry = input('Enter student name:\n')
-        name.append(name_entry)
+    name_entry = input('Enter student name:\n')
+    name.append(name_entry)
     num_entry = int(input('Enter student number:\n'))
     while num_entry > 99999999:
         num_entry = int(input('Enter student number:\n'))
@@ -18,9 +18,18 @@ while add_more == True:
     if len(course_entry) > 7:
         course_entry = input('Enter course code:\n')
     course.append(course_entry)
+    
     count += 1
-    add_more = bool(input('Do you wish to add more entries?(Reply with True or False only):\n'))
+    
+    choice = (input('Do you wish to add more entries?(Reply with Yes or No only):\n'))
+    if choice.lower() == 'yes':
+        add_more = True
+    elif choice.lower() == 'no':
+        add_more = False
+    else:
+        choice = (input('Do you wish to add more entries?(Reply with Yes or No only):\n'))
     
 #elif choice == 2:
     #Retrieve(min_number)
     
+

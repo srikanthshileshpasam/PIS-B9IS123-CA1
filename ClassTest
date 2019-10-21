@@ -1,6 +1,5 @@
 from prettytable import PrettyTable as pt
 import pandas
-from pandas import DataFrame
 
 
 name_entry = ''

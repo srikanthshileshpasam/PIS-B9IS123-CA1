@@ -1,5 +1,19 @@
-num = int(input('What would you like to do?(Select the corresponding number)'))
-
+num = int(input('What would you like to do?(Select the corresponding number)\n1) Enter new details\n2) Retrieve details\n'))
+number = 0
+course = ''
+if num == 1:
+    name = input('Enter student name:\n')
+    number = int(input('Enter student number:\n'))
+    if number >= 9:
+        number = int(input('Enter student number:\n'))
+    course = input('Enter course code:\n')
+    if course >= 7:
+        course = input('Enter course code:\n')
+        
+    
+elif num == 2:
+    Retrieve()
+    
 
 class Add:
     def __init__(self, number, name, course):
@@ -7,4 +21,7 @@ class Add:
         self.name = name
         self.course = course
         
-    def storing()
+    def storing():
+        self.name  
+        self.number 
+        self.course 

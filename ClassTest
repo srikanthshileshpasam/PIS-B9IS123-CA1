@@ -35,7 +35,7 @@ def retrieve():
         
         
 while exit == False:
-    choice = input('What would you like to do?(Select the corresponding number)\n1) Enter new details\n2) Retrieve all details\n3) Retrieve lowest student number\n')
+    choice = input('\n\n\nWhat would you like to do?(Select the corresponding number)\n1) Enter new details\n2) Retrieve all details\n3) Retrieve lowest student number\nPress any other key to exit.\n\n')
 
     if choice == '1':
         entry()

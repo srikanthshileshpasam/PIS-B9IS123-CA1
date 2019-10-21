@@ -33,7 +33,13 @@ def entry():
     if len(course_entry) > 7:
         course_entry = input('Re enter course code (Should be less than 7 characters):')
     course.append(course_entry)
-    print('\n\n\nStudent details saved successfully!')
+        
+    data.append([number[entries_count], name[entries_count], course[entries_count]])
+    data_frame = pandas.DataFrame(data, columns = ['Number', 'Name', 'Course'])
+    data_frame.sort_values(by=['Number'], inplace = True)
+    
+    export_csv = data_frame.to_csv(r'/Users/srikanthshileshpasam/OneDrive - Dublin Business School (DBS)/Python/student_list.csv', index = None, header = True)
+    print('All entries saved successfully! Safe to exit the application.')
         
 def show():
     table = pt(['Student Number', 'Student Name', 'Student Course ID'])
@@ -45,41 +51,23 @@ def retrieve():
     min_num = number.index(min(number))
     min_list = pt(['Student Number', 'Student Name', 'Student Course ID'])
     min_list.add_row([number[min_num], name[min_num], course[min_num]])
-    print(min_list)
-        
-def sorting():
-    data_frame = pandas.DataFrame(data, columns = ['Number', 'Name', 'Course'])
-    data_frame.sort_values(by=['Number'], inplace = True)
-    return data_frame
-
-def saving():
-    export_csv = data_frame.to_csv(r'/Users/srikanthshileshpasam/OneDrive - Dublin Business School (DBS)/Python/student_list.csv', index = None, header = True)
-    print('All entries saved successfully! Safe to exit the application.')
+    print(min_list)    
 
         
             
 while exit == False:
-    choice = input('\n\n\nWhat would you like to do?(Select the corresponding number)\n1) Enter new details\n2) Tabulate all entries\n3) Sort all entries student number wise\n4) Retrieve lowest student number\n5) Save all entries to CSV file.\nPress any other key to exit.\n\n')
+    choice = input('\n\n\nWhat would you like to do?(Select the corresponding number)\n1) Enter new details\n2) Tabulate all entries\n3) Retrieve lowest student number\nPress any other key to exit.\n\n')
 
     if choice == '1':
         entry()
-        data.append([number[entries_count], name[entries_count], course[entries_count]])
-
         entries_count += 1
 
     elif choice == '2':
         show()
     
     elif choice == '3':
-        sorting()
-        print(data_frame)
-    
-    elif choice == '4':
         retrieve()
-        
-    elif choice == '5':
-        saving()
-        
+                
     else:
         print('Exiting..')
         exit = True

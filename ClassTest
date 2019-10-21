@@ -9,6 +9,8 @@ number = []
 course_entry = ''
 course = []
 
+min_list = []
+
 count = 0
 choice = 0
 exit = False
@@ -35,7 +37,10 @@ def show():
     print(table)
     
 def retrieve():
-    None
+    min_num = number.index(min(number))
+    min_list = pt(['Student Number', 'Student Name', 'Student Course ID'])
+    min_list.add_row([number[min_num], name[min_num], course[min_num]])
+    print(min_list)
         
         
 while exit == False:

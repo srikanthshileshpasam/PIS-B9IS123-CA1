@@ -47,6 +47,10 @@ def show():
         table.add_row([number[i], name[i], course[i]])
     print(table)
     
+def show_old():
+    import_csv = pandas.read_csv(r'/Users/srikanthshileshpasam/OneDrive - Dublin Business School (DBS)/Python/student_list.csv')
+    print(import_csv)
+    
 def retrieve():
     min_num = number.index(min(number))
     min_list = pt(['Student Number', 'Student Name', 'Student Course ID'])
@@ -56,7 +60,7 @@ def retrieve():
         
             
 while exit == False:
-    choice = input('\n\n\nWhat would you like to do?(Select the corresponding number)\n1) Enter new details\n2) Tabulate all entries\n3) Retrieve lowest student number\nPress any other key to exit.\n\n')
+    choice = input('\n\n\nWhat would you like to do?(Select the corresponding number)\n1) Enter new details\n2) Tabulate all entries\n3) Retrieve lowest student number\n4) Show previous entries.\nPress any other key to exit.\n\n')
 
     if choice == '1':
         entry()
@@ -67,6 +71,9 @@ while exit == False:
     
     elif choice == '3':
         retrieve()
+        
+    elif choice == '4':
+        show_old()
                 
     else:
         print('Exiting..')

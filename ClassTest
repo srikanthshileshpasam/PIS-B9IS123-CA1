@@ -6,30 +6,28 @@ min_number = 0
 count = 0
 add_more = True
 
-while add_more == True:
-    if choice == 1:
-    name_entry = input('Enter student name:\n')
-    name.append(name_entry)
-    num_entry = int(input('Enter student number:\n'))
-    while num_entry > 99999999:
+if choice == 1:
+    while add_more == True:
+        name_entry = input('Enter student name:\n')
+        name.append(name_entry)
         num_entry = int(input('Enter student number:\n'))
-    number.append(num_entry)
-    course_entry = input('Enter course code:\n')
-    if len(course_entry) > 7:
+        while num_entry > 99999999:
+            num_entry = int(input('Enter student number:\n'))
+        number.append(num_entry)
         course_entry = input('Enter course code:\n')
-    course.append(course_entry)
+        if len(course_entry) > 7:
+            course_entry = input('Enter course code:\n')
+        course.append(course_entry)
     
-    count += 1
+        count += 1
     
-    choice = (input('Do you wish to add more entries?(Reply with Yes or No only):\n'))
-    if choice.lower() == 'yes':
-        add_more = True
-    elif choice.lower() == 'no':
-        add_more = False
-    else:
         choice = (input('Do you wish to add more entries?(Reply with Yes or No only):\n'))
+        if choice.lower() == 'yes':
+            add_more = True
+        elif choice.lower() == 'no':
+            add_more = False
+        else:
+            choice = (input('Do you wish to add more entries?(Reply with Yes or No only):\n'))
     
 #elif choice == 2:
     #Retrieve(min_number)
-    
-

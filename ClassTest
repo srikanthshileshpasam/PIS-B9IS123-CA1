@@ -1,9 +1,12 @@
-choice = int(input('What would you like to do?(Select the corresponding number)\n1) Enter new details\n2) Retrieve details\n'))
+choice = int(input('What would you like to do?(Select the corresponding number)\n1) Enter new details\n2) Retrieve all details\n3) Retrieve lowest student number\n'))
+
 name = []
 number = []
 course = []
+
 min_number = 0
 count = 0
+
 add_more = True
 
 if choice == 1:
@@ -29,5 +32,9 @@ if choice == 1:
         else:
             choice = (input('Do you wish to add more entries?(Reply with Yes or No only):\n'))
     
-#elif choice == 2:
-    #Retrieve(min_number)
+elif choice == 2:
+    print(f'Name of all Students:\n{name}')
+    print(f'All student numbers:\n{number}')
+    print(f'All course codes:\n{course}')
+    
+

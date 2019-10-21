@@ -1,40 +1,51 @@
-choice = int(input('What would you like to do?(Select the corresponding number)\n1) Enter new details\n2) Retrieve all details\n3) Retrieve lowest student number\n'))
+from prettytable import PrettyTable as pt
 
+name_entry = ''
 name = []
+
+num_entry = 0
 number = []
+
+course_entry = ''
 course = []
 
-min_number = 0
-count = 0
+choice = 0
+exit = False
 
-add_more = True
+        
+def entry():
+    name_entry = input('Enter student name:\n')
+    name.append(name_entry)
+        
+    num_entry = int(input('Enter student number:\n'))
+    while num_entry > 99999999:
+        num_entry = int(input('Re enter student number(Should be less than 8 digits):\n'))
+    number.append(num_entry)
+        
+    course_entry = input('Enter course code:\n')
+    if len(course_entry) > 7:
+        course_entry = input('Re enter course code (Should be less than 7 characters):\n')
+    course.append(course_entry)
+    
+def show():
+    None
+    
+def retrieve():
+    None
+        
+        
+while exit == False:
+    choice = input('What would you like to do?(Select the corresponding number)\n1) Enter new details\n2) Retrieve all details\n3) Retrieve lowest student number\n')
 
-if choice == 1:
-    while add_more == True:
-        name_entry = input('Enter student name:\n')
-        name.append(name_entry)
-        num_entry = int(input('Enter student number:\n'))
-        while num_entry > 99999999:
-            num_entry = int(input('Enter student number:\n'))
-        number.append(num_entry)
-        course_entry = input('Enter course code:\n')
-        if len(course_entry) > 7:
-            course_entry = input('Enter course code:\n')
-        course.append(course_entry)
-    
-        count += 1
-    
-        choice = (input('Do you wish to add more entries?(Reply with Yes or No only):\n'))
-        if choice.lower() == 'yes':
-            add_more = True
-        elif choice.lower() == 'no':
-            add_more = False
-        else:
-            choice = (input('Do you wish to add more entries?(Reply with Yes or No only):\n'))
-    
-elif choice == 2:
-    print(f'Name of all Students:\n{name}')
-    print(f'All student numbers:\n{number}')
-    print(f'All course codes:\n{course}')
-    
+    if choice == '1':
+        entry()
 
+    elif choice == '2':
+        show()
+    
+    elif choice == '3':
+        retrieve()
+    
+    else:
+        print('Exiting..')
+        exit = True

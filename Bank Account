@@ -45,21 +45,25 @@ elif create_account == 2:
     
     if authorize.check() == True:
         choice = int(input('Credentials authorized. Logging in!\n\nWhat would you like to do?\n1)Withdraw\n2) Deposit\n3) Check balance.\n4) Transfer funds.\nEnter the corresponding number.\n'))
+        
         if choice == 1:
             amt = int(input('How much would you like to withdraw?\n'))
             BankAccount(my_acc_num = user_name, amount = amt)
+            
             if BankAccount.balance() == True:
-                BankAccount.withdraw()
-                print(f'Amount withdrawn successfully!\nRemaining balance is {}')
+                print(f'Amount withdrawn successfully!\nRemaining balance is {BankAccount.withdraw()}')
+            
             else:
                 print('Insufficient balance.')
+        
         elif choice == 2:
             amt = int(input('How much would you like to deposit?\n'))
             BankAccount(my_acc_num = user_name, amount = amt)
-            BankAccount.deposit()
-            print(f'Amount deposited successfully! New balance is {}')
+            print(f'Amount deposited successfully! New balance is {BankAccount.deposit()}')
+        
         elif choice == 3:
-            
-            
+            BankAccount(my_acc_num = user_name)
+            print(f'Balance in your account is {BankAccount.balance()}')
+
 else:
     print('Wrong entry. Exiting application..')

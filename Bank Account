@@ -86,6 +86,7 @@ elif create_account == 2:
             print('Invalid entry!')
             
     else:
+        print('Invalid credentials.')
 
 else:
     print('Wrong entry. Exiting application..')

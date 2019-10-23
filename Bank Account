@@ -3,14 +3,20 @@
 #Create some bank accounts and test your methods.
 #Try to prevent illegal actions on account.
 
+class NewAccount:
+    def __init__(self, name):
+        self.name = name
+        
+    def new(self):
+        
+
 class BankAccount:
     def __init__(self, my_acc_num, other_acc_num, amount):
         self.my_acc_num = my_acc_num
         self.other_acc_num = other_acc_num
         self.amount = amount
-        
+                
     def deposit(self):
-        
         
     def withdraw(self):
         
@@ -27,7 +33,10 @@ class Authentication:
     def check(self):
         
         
-        
+
+create_account = input('What would you like to do? Enter the number.\n1) Create new account.\n2) Login to existing account.')
+if create_account == 1:
+    
 user_name = input('Enter your user name below:\n')
 password = input('Enter your password below:\n')
 

@@ -21,5 +21,14 @@ class BankAccount:
             
 class Authentication:
     def __init__(self, acc_id, pwd):
+        self.acc_id = acc_id
+        self.pwd = pwd
+        
+    def check(self):
         
         
+        
+user_name = input('Enter your user name below:\n')
+password = input('Enter your password below:\n')
+
+check_credentials = Authentication()

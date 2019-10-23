@@ -1,8 +1,11 @@
-class NewAccount:
-    def __init__(self, name):
+class Account:
+    def __init__(self, name, account=None):
         self.name = name
+        self.account = account
         
     def new(self):
+        
+    def old(self):
         
 
 class Authentication:
@@ -33,17 +36,17 @@ create_account = input('What would you like to do? Enter the number.\n1) Create 
 
 if create_account == 1:
     name_entry = input('Enter your full name:\n')
-    call_new_account = NewAccount(name_entry)
-    call_new_account.new()
+    Account(name_entry)
+    Account.new()
     print(f'Your account details are as below:\nAccount number: {}\nAccount ID: {}\nAccount password: {}')
     
 elif create_account == 2:
     user_name = input('Enter your user name below:\n')
     password = input('Enter your password below:\n')
-    authorize = Authentication(user_name, password)
-    authorize.check()
+    Authentication(user_name, password)
+    Authentication.check()
     
-    if authorize.check() == True:
+    if Authentication.check() == True:
         choice = int(input('Credentials authorized. Logging in!\n\nWhat would you like to do?\n1)Withdraw\n2) Deposit\n3) Check balance.\n4) Transfer funds.\nEnter the corresponding number.\n'))
         
         if choice == 1:
@@ -64,6 +67,14 @@ elif create_account == 2:
         elif choice == 3:
             BankAccount(my_acc_num = user_name)
             print(f'Balance in your account is {BankAccount.balance()}')
+        
+        elif choice == 4:
+            amt = int(input('How much would you like to transfer?\n'))
+            BankAccount(my_acc_num = user_name, amount = amt)
+            if BankAccount.balance() == True:
+                ben_acc = int(input('Enter the beneficiary account number:\n'))
+                
+                
 
 else:
     print('Wrong entry. Exiting application..')

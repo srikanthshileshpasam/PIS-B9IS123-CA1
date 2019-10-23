@@ -1,11 +1,17 @@
+import random
+import pandas
+
 class Account:
     def __init__(self, name, account=None):
         self.name = name
         self.account = account
         
-    def new(self):
+    def new():
+        pass
+
         
-    def old(self):
+    def old():
+        pass
         
 
 class Authentication:
@@ -13,7 +19,8 @@ class Authentication:
         self.acc_id = acc_id
         self.pwd = pwd
         
-    def check(self):
+    def check():
+        pass
         
         
 class BankAccount:
@@ -22,23 +29,27 @@ class BankAccount:
         self.other_acc_num = other_acc_num
         self.amount = amount
                 
-    def withdraw(self):
+    def withdraw():
+        pass
         
-    def deposit(self):
+    def deposit():
+        pass
         
-    def balance(self):
+    def balance():
+        pass
         
-    def transfer(self):
+    def transfer():
+        pass
             
             
 
-create_account = input('What would you like to do? Enter the number.\n1) Create new account.\n2) Login to existing account.')
+create_account = int(input('What would you like to do? Enter the number.\n1) Create new account.\n2) Login to existing account.\n'))
 
 if create_account == 1:
     name_entry = input('Enter your full name:\n')
     Account(name_entry)
     Account.new()
-    print(f'Your account details are as below:\nAccount number: {}\nAccount ID: {}\nAccount password: {}')
+    #print(f'Your account details are as below:\nAccount number: {}\nAccount ID: {}\nAccount password: {}')
     
 elif create_account == 2:
     user_name = input('Enter your user name below:\n')

@@ -1,8 +1,3 @@
-#Create a bank account class
-#Define functions - deposit, withdraw, transfer, check balance.
-#Create some bank accounts and test your methods.
-#Try to prevent illegal actions on account.
-
 class NewAccount:
     def __init__(self, name):
         self.name = name
@@ -10,21 +5,6 @@ class NewAccount:
     def new(self):
         
 
-class BankAccount:
-    def __init__(self, my_acc_num, other_acc_num, amount):
-        self.my_acc_num = my_acc_num
-        self.other_acc_num = other_acc_num
-        self.amount = amount
-                
-    def deposit(self):
-        
-    def withdraw(self):
-        
-    def balance(self):
-        
-    def transfer(self):
-            
-            
 class Authentication:
     def __init__(self, acc_id, pwd):
         self.acc_id = acc_id
@@ -33,11 +13,53 @@ class Authentication:
     def check(self):
         
         
+class BankAccount:
+    def __init__(self, my_acc_num, other_acc_num=None, amount=None):
+        self.my_acc_num = my_acc_num
+        self.other_acc_num = other_acc_num
+        self.amount = amount
+                
+    def withdraw(self):
+        
+    def deposit(self):
+        
+    def balance(self):
+        
+    def transfer(self):
+            
+            
 
 create_account = input('What would you like to do? Enter the number.\n1) Create new account.\n2) Login to existing account.')
-if create_account == 1:
-    
-user_name = input('Enter your user name below:\n')
-password = input('Enter your password below:\n')
 
-check_credentials = Authentication()
+if create_account == 1:
+    name_entry = input('Enter your full name:\n')
+    call_new_account = NewAccount(name_entry)
+    call_new_account.new()
+    print(f'Your account details are as below:\nAccount number: {}\nAccount ID: {}\nAccount password: {}')
+    
+elif create_account == 2:
+    user_name = input('Enter your user name below:\n')
+    password = input('Enter your password below:\n')
+    authorize = Authentication(user_name, password)
+    authorize.check()
+    
+    if authorize.check() == True:
+        choice = int(input('Credentials authorized. Logging in!\n\nWhat would you like to do?\n1)Withdraw\n2) Deposit\n3) Check balance.\n4) Transfer funds.\nEnter the corresponding number.\n'))
+        if choice == 1:
+            amt = int(input('How much would you like to withdraw?\n'))
+            BankAccount(my_acc_num = user_name, amount = amt)
+            if BankAccount.balance() == True:
+                BankAccount.withdraw()
+                print(f'Amount withdrawn successfully!\nRemaining balance is {}')
+            else:
+                print('Insufficient balance.')
+        elif choice == 2:
+            amt = int(input('How much would you like to deposit?\n'))
+            BankAccount(my_acc_num = user_name, amount = amt)
+            BankAccount.deposit()
+            print(f'Amount deposited successfully! New balance is {}')
+        elif choice == 3:
+            
+            
+else:
+    print('Wrong entry. Exiting application..')

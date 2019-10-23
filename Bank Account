@@ -73,8 +73,19 @@ elif create_account == 2:
             BankAccount(my_acc_num = user_name, amount = amt)
             if BankAccount.balance() == True:
                 ben_acc = int(input('Enter the beneficiary account number:\n'))
-                
-                
+                Account(name = None, account = ben_acc)
+                Account.old()
+                if Account.old() == True:
+                    BankAccount(user_name, ben_acc, amt)
+                    print(f'Funds transferred successfully! New account balance is {BankAccount.transfer()}\n')
+                else:
+                    print('Beneficiary account does not exist.\n')
+            else:
+                print('Insufficient balance in your account.\n')
+        else:
+            print('Invalid entry!')
+            
+    else:
 
 else:
     print('Wrong entry. Exiting application..')

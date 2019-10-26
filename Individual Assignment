@@ -77,9 +77,9 @@ class ManualData:
             x = int(input('Re enter student number(Should be less than 8 digits):\n'))
         num_lst.append(x)
         
-        x = input('Enter course code:')
+        x = input('Enter course code:\n')
         while len(x) > 7: 
-            x = input('Re enter course code (Should be less than 7 characters):')
+            x = input('Re enter course code (Should be less than 7 characters):\n')
         course_lst.append(x)
         
         raw_data.append([num_lst[count], name_lst[count], course_lst[count]])
@@ -89,12 +89,15 @@ class ManualData:
 
 
 while exit == False:
-    choice = input('\n\n\nWhat would you like to do?(Select the corresponding number)\n1) Enter student details manually.\n2) Generate Random data.\nPress any other key to exit.\n\n')
+    choice = input('\n\n\nWhat would you like to do?(Select the corresponding number)\n1) Enter Student details manually.\n2) Process manual data.\n3) Generate random data.\nPress any other key to exit.\n\n')
 
     if choice == '1':
         student_data = ManualData()
         raw_student_list = student_data.entry()
         count += 1
+        
+
+    elif choice == '2':
         print(raw_student_list)
         
         student_data_table = CreateTable(raw_student_list)
@@ -104,8 +107,8 @@ while exit == False:
         minimum_student = student_data_table.retrieve(sorted_student_list)
         print(minimum_student)
         
-
-    elif choice == '2':
+        
+    elif choice == '3':
         student_count = int(input('Enter the number of random student entries to be created:\n'))
         
         student_data = RandomData(student_count)
@@ -118,6 +121,7 @@ while exit == False:
 
         minimum_student = student_data_table.retrieve(sorted_student_list)
         print(minimum_student)
+    
     
     else:
         print('Exiting..')

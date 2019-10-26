@@ -73,7 +73,9 @@ class ManualData:
             x = input('Re enter course code (Should be less than 7 characters):')
         course_lst.append(x)
         
-        return raw_data.append([num_lst, name_lst, course_lst])
+        raw_data.append([num_lst, name_lst, course_lst])
+        
+        return raw_data
 
 
 
@@ -82,7 +84,8 @@ while exit == False:
 
     if choice == '1':
         count += 1
-        pass
+        user_entry = ManualData()
+        print(user_entry.entry())
 
     elif choice == '2':
         student_count = int(input('Enter the number of random student entries to be created:\n'))

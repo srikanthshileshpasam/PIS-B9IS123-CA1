@@ -47,18 +47,32 @@ class CreateTable:
         sorted_list = sorted_list.iloc[1:]
         
         return (min_student, sorted_list)
+
+
+
+exit = False
+
+while exit == False:
+    choice = input('\n\n\nWhat would you like to do?(Select the corresponding number)\n1) Enter details manually.\n2) Generate Random data.\nPress any other key to exit.\n\n')
+
+    if choice == '1':
+        pass
+
+    elif choice == '2':
+        student_count = int(input('Enter the number of random student entries to be created:\n'))
+        
+        student_data = RandomData(student_count)
+        raw_student_list = student_data.generator()
+        print(raw_student_list)
+
+        student_data_table = CreateTable(raw_student_list)
+        sorted_student_list = student_data_table.tabulate()
+        print(sorted_student_list)
+
+        minimum_student = student_data_table.retrieve(sorted_student_list)
+        print(minimum_student)
     
+    else:
+        print('Exiting..')
+        exit = True
 
-
-student_count = int(input('Enter the number of random student entries to be created:\n'))
-
-student_data = RandomData(student_count)
-raw_student_list = student_data.generator()
-print(raw_student_list)
-
-student_data_table = CreateTable(raw_student_list)
-sorted_student_list = student_data_table.tabulate()
-print(sorted_student_list)
-
-minimum_student = student_data_table.retrieve(sorted_student_list)
-print(minimum_student)

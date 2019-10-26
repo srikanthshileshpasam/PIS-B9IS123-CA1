@@ -32,14 +32,15 @@ class CreateTable:
         data_frame.sort_values(by=['Number'], inplace = True)
         return data_frame
     
-    def retrieve(self, lst):
-        self.lst = lst
+    def retrieve(self, sorted_list):
+        self.sorted_list = sorted_list
         
-        min_student = lst.iloc[0]
-        lst = lst.iloc[1:]
-        return (min_student, lst)
+        min_student = sorted_list.iloc[0]
+        sorted_list = sorted_list.iloc[1:]
+        return (min_student, sorted_list)
 
 student_count = int(input('Enter the number of random student entries to be created:\n'))
+
 student_data = RandomData(student_count)
 raw_student_list = student_data.generator()
 print(raw_student_list)

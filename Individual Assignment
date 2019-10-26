@@ -13,6 +13,9 @@ count = 0
 
 
 class RandomData:
+    '''
+    
+    '''
     
     def __init__(self, max_students):
         self.max_students = max_students
@@ -29,10 +32,28 @@ class RandomData:
             raw_data.append([num_lst[i], name_lst[i], course_lst[i]])
         
         return raw_data
+    
+    
+
+class DataFrameCreator:
+    '''
+    
+    '''
+    
+    def __init__(self, num_data, name_data, course_data, entries = 1):
+        self.num_data = num_data
+        self.name_data = name_data
+        self.course_data = course_data
+        
+    def combine(self):
+        pass
 
 
     
 class CreateTable:
+    '''
+    
+    '''
     
     def __init__(self, raw_data):
         self.raw_data = raw_data
@@ -55,6 +76,9 @@ class CreateTable:
 
 
 class ManualData:
+    '''
+    
+    '''
     
     def __init__(self):
         pass
@@ -73,7 +97,7 @@ class ManualData:
             x = input('Re enter course code (Should be less than 7 characters):')
         course_lst.append(x)
         
-        raw_data.append([num_lst, name_lst, course_lst])
+        raw_data.append([num_lst[count], name_lst[count], course_lst[count]])
         
         return raw_data
 
@@ -83,9 +107,9 @@ while exit == False:
     choice = input('\n\n\nWhat would you like to do?(Select the corresponding number)\n1) Enter student details manually.\n2) Generate Random data.\nPress any other key to exit.\n\n')
 
     if choice == '1':
-        count += 1
         user_entry = ManualData()
         print(user_entry.entry())
+        count += 1
 
     elif choice == '2':
         student_count = int(input('Enter the number of random student entries to be created:\n'))

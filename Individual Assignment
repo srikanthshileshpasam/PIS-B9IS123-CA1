@@ -50,10 +50,31 @@ class CreateTable:
 
 
 
+class ManualData:
+    
+    def __init__(self):
+        pass
+    
+    def entry(self):       
+        name_entry = input('Enter student name:\n')
+        name.append(name_entry)
+        
+        num_entry = int(input('Enter student number:\n'))
+        while num_entry > 99999999: 
+            num_entry = int(input('Re enter student number(Should be less than 8 digits):\n'))
+        number.append(num_entry)
+        
+        course_entry = input('Enter course code:')
+        while len(course_entry) > 7: 
+            course_entry = input('Re enter course code (Should be less than 7 characters):')
+        course.append(course_entry)
+
+
+
 exit = False
 
 while exit == False:
-    choice = input('\n\n\nWhat would you like to do?(Select the corresponding number)\n1) Enter details manually.\n2) Generate Random data.\nPress any other key to exit.\n\n')
+    choice = input('\n\n\nWhat would you like to do?(Select the corresponding number)\n1) Enter student details manually.\n2) Generate Random data.\nPress any other key to exit.\n\n')
 
     if choice == '1':
         pass

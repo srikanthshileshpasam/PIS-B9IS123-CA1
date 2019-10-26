@@ -1,78 +1,13 @@
-from prettytable import PrettyTable as pt #Importing pretty table library to display the entries in the form of a table
-import pandas #Importing pandas library to work with files and dataframes
+import random
 
+num_lst = []
+for i in range(0,9999):
+    num_lst.append(random.randint(1,99999999))
+#print(sorted(num_lst))
 
-name_entry = ''
-name = []
+rand_name_dir = ('Nami', 'Yuumi', 'Pyke', 'Soraka')
+name_lst = []
+for i in range(0,9999):
+    name_lst.append(random.choice(rand_name_dir))
+#print(name_lst)
 
-num_entry = 0
-number = []
-
-course_entry = ''
-course = []
-
-min_list = []
-data = []
-
-entries_count = 0
-choice = 0
-exit = False
-
-def entry(): #To get the input from the user        
-    name_entry = input('Enter student name:\n')
-    name.append(name_entry)
-        
-    num_entry = int(input('Enter student number:\n'))
-    while num_entry > 99999999: #Because it is mentioned that the student number should only be 8 digits long
-        num_entry = int(input('Re enter student number(Should be less than 8 digits):\n'))
-    number.append(num_entry)
-        
-    course_entry = input('Enter course code:')
-    while len(course_entry) > 7: #Because it is mentioned that the course code should only be 7 characters
-        course_entry = input('Re enter course code (Should be less than 7 characters):')
-    course.append(course_entry)
-        
-    data.append([number[entries_count], name[entries_count], course[entries_count]]) #From the 3 entries input I am creating a list of lists in the format [[Student 1 number, Student 1 name, Student 1 course], [Student 2 number, Student 2 name, Student 2 course]]. This makes it easier to be used in dataframes.
-    data_frame = pandas.DataFrame(data, columns = ['Number', 'Name', 'Course']) #Creating the dataframe table columns
-    data_frame.sort_values(by=['Number'], inplace = True) #Sorting the dataframe table values based on the student numbers
-    
-    export_csv = data_frame.to_csv(r'/Users/srikanthshileshpasam/OneDrive - Dublin Business School (DBS)/Python/student_list.csv', index = None, header = True) #Exporting the dataframe table to an external CSV file saved on my local harddrive
-    print('All entries saved successfully! Safe to exit the application.')
-        
-def show(): #To display all the data entries
-    table = pt(['Student Number', 'Student Name', 'Student Course ID']) #pt = PrettyTable. Creating the table column headings
-    for i in range(0, entries_count): #Populating the table with rows of data one at a time taken from the user input
-        table.add_row([number[i], name[i], course[i]])
-    print(table)
-    
-def show_old(): #To display the previously stored data which is saved on my harddisk as a CSV file
-    import_csv = pandas.read_csv(r'/Users/srikanthshileshpasam/OneDrive - Dublin Business School (DBS)/Python/student_list.csv')
-    print(import_csv)
-    
-def retrieve(): #To display the student details who has the lowest student number
-    min_num = number.index(min(number)) #Finding the index value of the student with the smallest student number
-    min_list = pt(['Student Number', 'Student Name', 'Student Course ID']) #Creating the column headings used to display the info in the form of a table
-    min_list.add_row([number[min_num], name[min_num], course[min_num]]) #Filling the table with the corresponding student details
-    print(min_list)    
-
-        
-            
-while exit == False: #While loop to enable user to enter multiple student data simultaneously
-    choice = input('\n\n\nWhat would you like to do?(Select the corresponding number)\n1) Enter new details\n2) Tabulate all entries\n3) Retrieve lowest student number\n4) Show previous entries.\nPress any other key to exit.\n\n')
-
-    if choice == '1':
-        entry()
-        entries_count += 1
-
-    elif choice == '2':
-        show()
-    
-    elif choice == '3':
-        retrieve()
-        
-    elif choice == '4':
-        show_old()
-                
-    else:
-        print('Exiting..')
-        exit = True

@@ -29,4 +29,6 @@ for i in range(0,student_count):
 
 data_frame = pandas.DataFrame(raw_data, columns = ['Number', 'Name', 'Course'])
 data_frame.sort_values(by=['Number'], inplace = True)
-#print(data_frame)
+print(data_frame)
+
+print(data_frame.iloc[0])

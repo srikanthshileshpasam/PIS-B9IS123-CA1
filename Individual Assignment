@@ -34,21 +34,6 @@ class RandomData:
         return raw_data
     
     
-
-class DataFrameCreator:
-    '''
-    
-    '''
-    
-    def __init__(self, num_data, name_data, course_data, entries = 1):
-        self.num_data = num_data
-        self.name_data = name_data
-        self.course_data = course_data
-        
-    def combine(self):
-        pass
-
-
     
 class CreateTable:
     '''
@@ -107,9 +92,18 @@ while exit == False:
     choice = input('\n\n\nWhat would you like to do?(Select the corresponding number)\n1) Enter student details manually.\n2) Generate Random data.\nPress any other key to exit.\n\n')
 
     if choice == '1':
-        user_entry = ManualData()
-        print(user_entry.entry())
+        student_data = ManualData()
+        raw_student_list = student_data.entry()
         count += 1
+        print(raw_student_list)
+        
+        student_data_table = CreateTable(raw_student_list)
+        sorted_student_list = student_data_table.tabulate()
+        print(sorted_student_list)
+
+        minimum_student = student_data_table.retrieve(sorted_student_list)
+        print(minimum_student)
+        
 
     elif choice == '2':
         student_count = int(input('Enter the number of random student entries to be created:\n'))

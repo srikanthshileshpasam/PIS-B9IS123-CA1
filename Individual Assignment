@@ -1,7 +1,8 @@
 import random
 import string
+import pandas
 
-student_count = int(input('Enter the max number of student entries to be created:\n'))
+student_count = int(input('Enter the number of random student entries to be created:\n'))
 
 num_lst = []
 for i in range(0,student_count):
@@ -21,7 +22,11 @@ for i in range(0,student_count):
     course_lst.append(random.choice(course_dir_1) + random.choice(course_dir_2)*5)
 #print(course_lst)
 
-rand_data = []
+raw_data = []
 for i in range(0,student_count):
-    rand_data.append([num_lst[i], name_lst[i], course_lst[i]])
+    raw_data.append([num_lst[i], name_lst[i], course_lst[i]])
 #print(rand_data)
+
+data_frame = pandas.DataFrame(raw_data, columns = ['Number', 'Name', 'Course'])
+data_frame.sort_values(by=['Number'], inplace = True)
+#print(data_frame)

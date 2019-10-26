@@ -1,13 +1,20 @@
 import random
+import string
 
 num_lst = []
 for i in range(0,9999):
     num_lst.append(random.randint(1,99999999))
 #print(sorted(num_lst))
 
-rand_name_dir = ('Nami', 'Yuumi', 'Pyke', 'Soraka')
+name_dir = ('Nami', 'Yuumi', 'Pyke', 'Soraka')
 name_lst = []
 for i in range(0,9999):
-    name_lst.append(random.choice(rand_name_dir))
+    name_lst.append(random.choice(name_dir))
 #print(name_lst)
 
+course_lst = []
+course_dir_1 = string.ascii_uppercase
+course_dir_2 = string.digits
+for i in range(0,9999):
+    course_lst.append(random.choice(course_dir_1)*2 + random.choice(course_dir_1)*2 + random.choice(course_dir_2)*3)
+#print(course_lst)

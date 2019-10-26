@@ -2,7 +2,10 @@ import random
 import string
 import pandas
 
+
+
 class RandomData:
+    
     def __init__(self, max_students):
         self.max_students = max_students
         
@@ -23,13 +26,18 @@ class RandomData:
         
         return raw_data
 
+
+    
 class CreateTable:
+    
     def __init__(self, raw_data):
         self.raw_data = raw_data
         
     def tabulate(self):
+        
         data_frame = pandas.DataFrame(self.raw_data, columns = ['Number', 'Name', 'Course'])
         data_frame.sort_values(by=['Number'], inplace = True)
+        
         return data_frame
     
     def retrieve(self, sorted_list):
@@ -37,7 +45,10 @@ class CreateTable:
         
         min_student = sorted_list.iloc[0]
         sorted_list = sorted_list.iloc[1:]
+        
         return (min_student, sorted_list)
+    
+
 
 student_count = int(input('Enter the number of random student entries to be created:\n'))
 

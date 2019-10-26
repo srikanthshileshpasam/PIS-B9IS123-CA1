@@ -23,14 +23,22 @@ class RandomData:
         
         return raw_data
 
+class ProcessedData:
+    def __init__(self, raw_data_2):
+        self.raw_data_2 = raw_data_2
+        
+    def tabulate(self):
+        data_frame = pandas.DataFrame(self.raw_data_2, columns = ['Number', 'Name', 'Course'])
+        data_frame.sort_values(by=['Number'], inplace = True)
+        return data_frame
 
 student_count = int(input('Enter the number of random student entries to be created:\n'))
-student_data = RandomData(student_count)
-student_list = student_data.generator()
+student_data_gen = RandomData(student_count)
+student_list = student_data_gen.generator()
 
+student_data_comp = ProcessedData(student_list)
+student_list_sorted = student_data_comp.tabulate()
 
-data_frame = pandas.DataFrame(student_list, columns = ['Number', 'Name', 'Course'])
-data_frame.sort_values(by=['Number'], inplace = True)
 
 min_student = data_frame.iloc[0]
 #print(min_student)

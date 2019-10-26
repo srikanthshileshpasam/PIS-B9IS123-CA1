@@ -85,6 +85,17 @@ class ManualData:
         raw_data.append([num_lst[count], name_lst[count], course_lst[count]])
         
         return raw_data
+    
+    
+def process():
+    print(raw_student_list)
+        
+    student_data_table = CreateTable(raw_student_list)
+    sorted_student_list = student_data_table.tabulate()
+    print(sorted_student_list)
+
+    minimum_student = student_data_table.retrieve(sorted_student_list)
+    print(minimum_student)
 
 
 
@@ -98,14 +109,8 @@ while exit == False:
         
 
     elif choice == '2':
-        print(raw_student_list)
-        
-        student_data_table = CreateTable(raw_student_list)
-        sorted_student_list = student_data_table.tabulate()
-        print(sorted_student_list)
-
-        minimum_student = student_data_table.retrieve(sorted_student_list)
-        print(minimum_student)
+        process()
+        exit = True
         
         
     elif choice == '3':
@@ -113,17 +118,10 @@ while exit == False:
         
         student_data = RandomData(student_count)
         raw_student_list = student_data.generator()
-        print(raw_student_list)
-
-        student_data_table = CreateTable(raw_student_list)
-        sorted_student_list = student_data_table.tabulate()
-        print(sorted_student_list)
-
-        minimum_student = student_data_table.retrieve(sorted_student_list)
-        print(minimum_student)
+        process()
+        exit = True
     
     
     else:
         print('Exiting..')
         exit = True
-

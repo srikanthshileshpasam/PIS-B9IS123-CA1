@@ -1,20 +1,27 @@
 import random
 import string
 
+student_count = int(input('Enter the max number of student entries to be created:\n'))
+
 num_lst = []
-for i in range(0,9999):
+for i in range(0,student_count):
     num_lst.append(random.randint(1,99999999))
 #print(sorted(num_lst))
 
 name_dir = ('Nami', 'Yuumi', 'Pyke', 'Soraka')
 name_lst = []
-for i in range(0,9999):
+for i in range(0,student_count):
     name_lst.append(random.choice(name_dir))
 #print(name_lst)
 
 course_lst = []
-course_dir_1 = string.ascii_uppercase
+course_dir_1 = ('EE', 'IT', 'CS', 'ME', 'CV')
 course_dir_2 = string.digits
-for i in range(0,9999):
-    course_lst.append(random.choice(course_dir_1)*2 + random.choice(course_dir_1)*2 + random.choice(course_dir_2)*3)
+for i in range(0,student_count):
+    course_lst.append(random.choice(course_dir_1) + random.choice(course_dir_2)*5)
 #print(course_lst)
+
+rand_data = []
+for i in range(0,student_count):
+    rand_data.append([num_lst[i], name_lst[i], course_lst[i]])
+#print(rand_data)

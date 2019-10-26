@@ -23,14 +23,14 @@ class RandomData:
         
         return raw_data
 
+
 student_count = int(input('Enter the number of random student entries to be created:\n'))
 student_data = RandomData(student_count)
-student_data.generator()
+student_list = student_data.generator()
 
 
-data_frame = pandas.DataFrame(raw_data, columns = ['Number', 'Name', 'Course'])
+data_frame = pandas.DataFrame(student_list, columns = ['Number', 'Name', 'Course'])
 data_frame.sort_values(by=['Number'], inplace = True)
-#print(data_frame)
 
 min_student = data_frame.iloc[0]
 #print(min_student)

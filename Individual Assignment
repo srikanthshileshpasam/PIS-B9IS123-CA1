@@ -63,15 +63,15 @@ class RandomData:
     
 
     
-def manual_sort(random_data):
+def manual_sort(data):
+    greater = []
     lesser = []
     equal = []
-    greater = []
 
-    if len(random_data) > 1:
-        pivot = random_data[0]
+    if len(data) > 1:
+        pivot = data[0]
         
-        for x in random_data:
+        for x in data:
             if x < pivot:
                 lesser.append(x)
             elif x == pivot:
@@ -80,7 +80,7 @@ def manual_sort(random_data):
                 greater.append(x)
         return manual_sort(lesser) + equal + manual_sort(greater)
     else:
-        return random_data    
+        return data
 
     
 
@@ -89,15 +89,14 @@ class CreateTable:
     
     '''
     
-    def __init__(self, random_data):
-        self.random_data = random_data
+    def __init__(self, data):
+        self.data = data
         
                 
     def tabulate(self):
         
-        data_frame = pandas.DataFrame(self.random_data, columns = ['Number', 'Name', 'Course'])
+        data_frame = pandas.DataFrame(self.data, columns = ['Number', 'Name', 'Course'])
         #data_frame.sort_values(by=['Number'], inplace = True)
-        
         return data_frame
     
     

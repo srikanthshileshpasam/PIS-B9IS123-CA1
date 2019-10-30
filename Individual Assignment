@@ -80,14 +80,14 @@ class RandomData:
 
     
 def manual_sort(data):
-'''
-Quick Sort function.
+    '''
+    Quick Sort function.
 
-Attr:
-    data [List]: List to be sorted.
+    Attr:
+        data [List]: List to be sorted.
     
-Returns sorted list.
-'''
+    Returns sorted list.
+    '''
     greater = []
     lesser = []
     equal = []
@@ -109,11 +109,11 @@ Returns sorted list.
     
 
 class CreateTable:
-'''
-Creates dataframe of a list.
-Attr:
-    data [List]: List to create a dataframe from.
-'''
+    '''
+    Creates dataframe of a list.
+    Attr:
+        data [List]: List to create a dataframe from.
+    '''
     
     def __init__(self, data):
         self.data = data

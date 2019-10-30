@@ -2,6 +2,7 @@ import random
 import string
 import pandas
 
+
 num_lst = []
 name_lst = []
 course_lst = []
@@ -14,13 +15,19 @@ count = 0
 
 class ManualData:
     '''
-    
+    Class for accepting student data as input manually from the user.
     '''
     
     def __init__(self):
         pass
     
-    def entry(self):       
+    def entry(self):
+        '''
+        Takes in student name, student number, student course and saves it to name_lst (str), num_lst (int), 
+        course_lst (str) respectively.
+        
+        It returns raw_data which is a list of lists of each student detail.
+        '''
         x = input('Enter student name:\n')
         name_lst.append(x)
         
@@ -42,13 +49,22 @@ class ManualData:
 
 class RandomData:
     '''
+    Class for generating random student data.
     
+    Attr:
+        max_students (int): Total number of student entries to be generated.   
     '''
     
     def __init__(self, max_students):
         self.max_students = max_students
         
     def generator(self):
+        '''
+        Generates entries of random student details.
+        
+        It returns raw_data which is a list of lists of each student detail.
+
+        '''
         name_dir = ('Nami', 'Yuumi', 'Pyke', 'Soraka', 'Sona')
         course_dir_1 = ('EE', 'IT', 'CS', 'ME', 'CV')
         course_dir_2 = string.digits
@@ -64,6 +80,14 @@ class RandomData:
 
     
 def manual_sort(data):
+'''
+Quick Sort function.
+
+Attr:
+    data [List]: List to be sorted.
+    
+Returns sorted list.
+'''
     greater = []
     lesser = []
     equal = []
@@ -85,15 +109,22 @@ def manual_sort(data):
     
 
 class CreateTable:
-    '''
-    
-    '''
+'''
+Creates dataframe of a list.
+Attr:
+    data [List]: List to create a dataframe from.
+'''
     
     def __init__(self, data):
         self.data = data
         
                 
     def tabulate(self):
+        '''
+        Creates dataframe of a list.
+        
+        Returns dataframe type
+        '''
         
         data_frame = pandas.DataFrame(self.data, columns = ['Number', 'Name', 'Course'])
         #data_frame.sort_values(by=['Number'], inplace = True)
@@ -101,6 +132,15 @@ class CreateTable:
     
     
     def retrieve(self, sorted_lst):
+        '''
+        Shows the smallest entry and reomves it from the dataframe.
+        Attr:
+            sorted_lst [Dataframe]: Dataframe input
+        
+        Returns a dictionary with keys:
+        'low': value with the smallest number
+        'lst': new dataframe without the smallest entry
+        '''
         self.sorted_lst = sorted_lst
         
         min_student = sorted_lst.iloc[0]
@@ -112,8 +152,15 @@ class CreateTable:
     
 def process():
     '''
+    A set of print functions to display the processed data.
     
+    Called after taking all user inputs.
+    
+    print 1 - The raw student list either manually taken using ManualData.entry() or automatically generated from RandomData.generator()
+    print 2 - Sorted student list from manual_sort() sent to CreateTable.tabulate() and printed in the form of a dataframe.
+    print 3 - Student with the smallest student number and new list without that student from CreateTable.retrieve().
     '''
+    
     print(f'\n\nThe student data input/generated is as below:\n{raw_student_list}')
         
     sorted_student_list = manual_sort(raw_student_list)

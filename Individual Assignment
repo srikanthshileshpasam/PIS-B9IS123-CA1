@@ -118,7 +118,9 @@ def process():
         
     sorted_student_list = manual_sort(raw_student_list)
     
+    #student_data_table = CreateTable(raw_student_list)
     student_data_table = CreateTable(sorted_student_list)
+    
     sorted_student_list = student_data_table.tabulate()
     print(f'\n\nThe sorted student list of students is shown below:\n{sorted_student_list}')
 

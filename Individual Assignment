@@ -21,7 +21,7 @@ class RandomData:
         self.max_students = max_students
         
     def generator(self):
-        name_dir = ('Nami', 'Yuumi', 'Pyke', 'Soraka')
+        name_dir = ('Nami', 'Yuumi', 'Pyke', 'Soraka', 'Sona')
         course_dir_1 = ('EE', 'IT', 'CS', 'ME', 'CV')
         course_dir_2 = string.digits
         
@@ -40,12 +40,12 @@ class CreateTable:
     
     '''
     
-    def __init__(self, raw_data):
-        self.raw_data = raw_data
+    def __init__(self, random_data):
+        self.random_data = random_data
         
     def tabulate(self):
         
-        data_frame = pandas.DataFrame(self.raw_data, columns = ['Number', 'Name', 'Course'])
+        data_frame = pandas.DataFrame(self.random_data, columns = ['Number', 'Name', 'Course'])
         data_frame.sort_values(by=['Number'], inplace = True)
         
         return data_frame
@@ -56,7 +56,7 @@ class CreateTable:
         min_student = sorted_lst.iloc[0]
         sorted_lst = sorted_lst.iloc[1:]
         
-        return (min_student, sorted_lst)
+        return {'low':min_student, 'lst':sorted_lst}
 
 
 
@@ -88,14 +88,17 @@ class ManualData:
     
     
 def process():
-    print(raw_student_list)
+    '''
+    
+    '''
+    print(f'\n\nThe student data input/generated is as below:\n{raw_student_list}')
         
     student_data_table = CreateTable(raw_student_list)
     sorted_student_list = student_data_table.tabulate()
-    print(sorted_student_list)
+    print(f'\n\nThe sorted student list of students is shown below:\n{sorted_student_list}')
 
     minimum_student = student_data_table.retrieve(sorted_student_list)
-    print(minimum_student)
+    print(f"\n\nThe student with the lowest student number is:\n{minimum_student.get('low')}\n\nThe new student list is:\n{minimum_student.get('lst')}")
 
 
 
@@ -118,6 +121,7 @@ while exit == False:
         
         student_data = RandomData(student_count)
         raw_student_list = student_data.generator()
+        
         process()
         exit = True
     

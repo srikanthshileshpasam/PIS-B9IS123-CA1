@@ -123,11 +123,25 @@ class RandomData:
 def manual_sort(data):
     '''
     Quick Sort function.
-
-    Attr:
-        data [List]: List to be sorted.
     
-    Returns sorted list.
+    Parameters:
+    ----------
+        data: List to be sorted.
+
+    Attributes:
+    ----------
+        greater:
+            List to temporarily store the values greater than the pivot.
+            
+        lesser:
+            List to temporarily store the values lesser than the pivot.
+            
+        equal:
+            List that stores the pivot.
+        
+    Returns:
+    -------
+        Returns sorted list.
     '''
     greater = []
     lesser = []

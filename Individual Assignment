@@ -19,7 +19,6 @@ class ManualData:
     
     Methods:
     -------
-    
         entry():
             Collects the input data from the user.
         
@@ -43,9 +42,8 @@ class ManualData:
                 
         Returns:
         -------
-
             It returns raw_data which is a list of lists of each student detail in the format:
-                [[student number, student name, student course code]]
+                [[student number(int), student name(str), student course code(str)]]
         '''
         
         x = input('Enter student name:\n')
@@ -71,20 +69,43 @@ class RandomData:
     '''
     Class for generating random student data.
     
-    Attr:
-        max_students (int): Total number of student entries to be generated.   
+    Methods:
+    -------
+        generator():
+            Generates random student entries.   
     '''
     
     def __init__(self, max_students):
+        '''
+        Parameters:
+        ----------
+            max_students (int):
+                Collects the maximum number of entries to be generated from the user and passes it to the generator()
+        '''
+        
         self.max_students = max_students
         
     def generator(self):
         '''
         Generates entries of random student details.
         
-        It returns raw_data which is a list of lists of each student detail.
-
+        Attributes:
+        ----------
+            name_dir:
+                Stores random names to be used to populate the student name data.
+                
+            course_dir_1:
+                Stores random course codes used to populate the initial value of the student course code data.
+                
+            course_dir_2:
+                Stores random course codes used to populate the final value of the student course code data.
+        
+        Returns:
+        -------
+            It returns raw_data which is a list of lists of each student detail in the format:
+                [[student number(int), student name(str), student course code(str)]]
         '''
+        
         name_dir = ('Nami', 'Yuumi', 'Pyke', 'Soraka', 'Sona')
         course_dir_1 = ('EE', 'IT', 'CS', 'ME', 'CV')
         course_dir_2 = string.digits

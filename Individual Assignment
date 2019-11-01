@@ -143,6 +143,7 @@ def manual_sort(data):
     -------
         Returns sorted list.
     '''
+    
     greater = []
     lesser = []
     equal = []
@@ -166,19 +167,34 @@ def manual_sort(data):
 class CreateTable:
     '''
     Creates dataframe of a list.
-    Attr:
-        data [List]: List to create a dataframe from.
+    
+    Methods:
+    -------
+        tabulate():
+            Uses pandas library to create data frames of a list.
+            
+        retrieve():
+            Shows the first value of a data frame and stores the data frame from the second object onwards.            
     '''
     
     def __init__(self, data):
+        '''
+        Parameters:
+        ----------
+            data:
+                A list value based on which the data frame is to be created.
+        '''
+        
         self.data = data
         
                 
     def tabulate(self):
         '''
-        Creates dataframe of a list.
+        Uses pandas library to create data frame of a list.
         
-        Returns dataframe type
+        Returns:
+        -------
+            Returns dataframe type
         '''
         
         data_frame = pandas.DataFrame(self.data, columns = ['Number', 'Name', 'Course'])
@@ -189,13 +205,22 @@ class CreateTable:
     def retrieve(self, sorted_lst):
         '''
         Shows the smallest entry and reomves it from the dataframe.
-        Attr:
-            sorted_lst [Dataframe]: Dataframe input
         
-        Returns a dictionary with keys:
-        'low': value with the smallest number
-        'lst': new dataframe without the smallest entry
+        Attributes:
+        ----------
+            min_student:
+                Collects the first object of the data frame.
+                
+            sorted_lst:
+                Stores the data frame from the second object onwards.
+        
+        Returns:
+        -------
+            Returns a dictionary with keys:
+                'low': The first value of the original data frame which is removed from it.
+                'lst': New data frame without the first object.
         '''
+        
         self.sorted_lst = sorted_lst
         
         min_student = sorted_lst.iloc[0]

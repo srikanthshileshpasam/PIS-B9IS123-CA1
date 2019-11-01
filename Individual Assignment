@@ -202,10 +202,15 @@ class CreateTable:
         return data_frame
     
     
-    def retrieve(self, sorted_lst):
+    def retrieve(self, sorted_df):
         '''
         Shows the smallest entry and reomves it from the dataframe.
         
+        Parameters:
+        ----------
+            sorted_df:
+                A sorted data frame.
+                
         Attributes:
         ----------
             min_student:
@@ -221,12 +226,12 @@ class CreateTable:
                 'lst': New data frame without the first object.
         '''
         
-        self.sorted_lst = sorted_lst
+        self.sorted_df = sorted_df
         
-        min_student = sorted_lst.iloc[0]
-        sorted_lst = sorted_lst.iloc[1:]
+        min_student = sorted_df.iloc[0]
+        sorted_df = sorted_df.iloc[1:]
         
-        return {'low':min_student, 'lst':sorted_lst}
+        return {'low':min_student, 'lst':sorted_df}
 
 
     
@@ -236,9 +241,14 @@ def process():
     
     Called after taking all user inputs.
     
-    print 1 - The raw student list either manually taken using ManualData.entry() or automatically generated from RandomData.generator()
-    print 2 - Sorted student list from manual_sort() sent to CreateTable.tabulate() and printed in the form of a dataframe.
-    print 3 - Student with the smallest student number and new list without that student from CreateTable.retrieve().
+    print 1:
+        The raw student list either manually taken using ManualData.entry() or automatically generated from RandomData.generator()
+    
+    print 2:
+        Sorted student list from manual_sort() sent to CreateTable.tabulate() and printed in the form of a dataframe.
+    
+    print 3:
+        Student with the smallest student number and new list without that student from CreateTable.retrieve().
     '''
     
     print(f'\n\nThe student data input/generated is as below:\n{raw_student_list}')

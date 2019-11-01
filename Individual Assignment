@@ -17,10 +17,8 @@ class ManualData:
     '''
     Class for accepting student data as input manually from the user.
     
-    ....
-    
     Methods:
-    _______
+    -------
     
         entry():
             Collects the input data from the user.
@@ -34,14 +32,20 @@ class ManualData:
         '''
         Collects student data input from user.
         
-        
-        Takes in:
-            Student name as name_lst (str)
-            Student number as  num_lst (int) of max 8 digits
-            Student course as course_lst (str) of max 7 characters
-        
-        It returns raw_data which is a list of lists of each student detail in the format:
-            [[student number, student name, student course code]]
+        Attributes:
+        ----------
+            x: A class attribute used to collect the user input 
+            
+            x takes in:
+                Student name as name_lst (str)
+                Student number as  num_lst (int) of max 8 digits
+                Student course as course_lst (str) of max 7 characters
+                
+        Returns:
+        -------
+
+            It returns raw_data which is a list of lists of each student detail in the format:
+                [[student number, student name, student course code]]
         '''
         
         x = input('Enter student name:\n')

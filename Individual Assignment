@@ -1,16 +1,21 @@
 import random
+#Used for the creation of random entries
 import string
+#Used for populating string values 
 import pandas
-
+#Used to work with DataFrame which is the data structure used for this program
 
 num_lst = []
 name_lst = []
 course_lst = []
+#Lists for storing all the student numbers, names, courses
 raw_data = []
+#List for gathering all the above student details into one list of lists
 
 exit = False
+#Boolean value used during user selection menu
 count = 0
-
+#Counter to keep track of the number of student entries entered manually
 
 
 class ManualData:
@@ -198,7 +203,7 @@ class CreateTable:
         '''
         
         data_frame = pandas.DataFrame(self.data, columns = ['Number', 'Name', 'Course'])
-        #data_frame.sort_values(by=['Number'], inplace = True)
+        #data_frame.sort_values(by=['Number'], inplace = True) #Alternaative approach if using in built sort function. Uncomment this.
         return data_frame
     
     
@@ -253,10 +258,10 @@ def process():
     
     print(f'\n\nThe student data input/generated is as below:\n{raw_student_list}')
         
-    sorted_student_list = manual_sort(raw_student_list)
+    sorted_student_list = manual_sort(raw_student_list) #Alternaative approach if using in built sort function. Comment this.
     
-    #student_data_table = CreateTable(raw_student_list)
-    student_data_table = CreateTable(sorted_student_list)
+    #student_data_table = CreateTable(raw_student_list) #Alternaative approach if using in built sort function. Uncomment this.
+    student_data_table = CreateTable(sorted_student_list) #Alternaative approach if using in built sort function. Comment this.
     
     sorted_student_list = student_data_table.tabulate()
     print(f'\n\nThe sorted student list is shown below:\n{sorted_student_list}')
